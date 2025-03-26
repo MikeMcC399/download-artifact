@@ -6,6 +6,9 @@ on:
   pull_request:
     paths-ignore:
       - '**.md'
+  workflow_dispatch:
+env:
+  NODE_OPTIONS: --trace-deprecation
 
 jobs:
   build:
@@ -13,7 +16,11 @@ jobs:
 
     strategy:
       matrix:
-        runs-on: [ubuntu-latest, macos-latest, windows-latest]
+        runs-on: [
+          ubuntu-latest,
+          # macos-latest,
+          # windows-latest
+          ]
       fail-fast: false
 
     runs-on: ${{ matrix.runs-on }}
